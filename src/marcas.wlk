@@ -3,6 +3,7 @@ import personas.*
 import paises.*
 import jarras.*
 
+
 class Cerveza {
 	var property origen
 	var property graduacionAlcoholica = 0

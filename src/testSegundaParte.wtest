@@ -4,6 +4,7 @@ import paises.*
 import personas.*
 import jarras.*
 
+
 test "test segunda parte" {
 	
 	//5 - quiere entrar

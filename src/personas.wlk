@@ -3,6 +3,7 @@ import carpas.*
 import paises.*
 import jarras.*
 
+
 class Persona {
 	var property peso = 0
 	const property jarrasCompradas = []
