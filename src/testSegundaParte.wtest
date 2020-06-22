@@ -1,0 +1,53 @@
+import marcas.*
+import carpas.*
+import paises.*
+import personas.*
+
+test "test segunda parte" {
+	
+	//5 - quiere entrar
+	const guiness = new Negra(origen = alemania, lupulo = 8)
+	const laCarpaDelAmor = new Carpa(cupo = 3, marcaDeCerveza = guiness)
+	const sebastian = new Checo(peso = 90, aguante = 20)
+	//Sebastian es checo y le gusta la cerveza fuerte fuerte.
+	assert.notThat(sebastian.quiereEntrar(laCarpaDelAmor))
+	//a Gerardo le gustan todas.
+	const gerardo = new Aleman(peso = 90, aguante = 20)
+	assert.that(gerardo.quiereEntrar(laCarpaDelAmor))
+	
+	//6 - deja entrar
+	//Gerardo quiere entrar a la carpa y la carpa lo deja.
+	assert.that(laCarpaDelAmor.dejaIngresar(gerardo))
+	
+	//7 - puede entrar
+	assert.that(gerardo.puedeEntrar(laCarpaDelAmor))
+	//por la misma razon de antes, no puede entrar.
+	assert.notThat(sebastian.puedeEntrar(laCarpaDelAmor))
+
+	
+	//8 - entre
+	//no hay nadie en la carpa
+	assert.equals(0,laCarpaDelAmor.totalDePersonasAdentro())
+	//entra Gerardo a la carpa del amor
+	gerardo.entrarALaCarpa(laCarpaDelAmor)
+	assert.equals(1,laCarpaDelAmor.totalDePersonasAdentro())
+	
+	/*
+	* esto da error, porque la cantidad de gente es impar
+	* y carlos es aleman y le gusta que el nro sea par.
+	* no se como representar el error en el test.
+	*/
+	//const carlos = new Aleman(peso = 90, aguante = 20)
+	//carlos.entrarALaCarpa(laCarpaDelAmor)
+
+	//9 - le sirva una jarra
+	assert.equals(0,gerardo.jarrasCompradas().size())
+	laCarpaDelAmor.servirJarra(gerardo,20)
+	assert.equals(1,gerardo.jarrasCompradas().size())
+	
+	//10 - ebrios empedernidos
+	assert.equals(1,laCarpaDelAmor.ebriosEmpedernidos())
+	
+	//11 - es patriota
+	assert.that(gerardo.esPatriota())
+}

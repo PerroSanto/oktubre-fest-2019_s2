@@ -1,0 +1,31 @@
+import marcas.*
+import carpas.*
+import paises.*
+import personas.*
+
+test "test primera parte" {
+	
+	//1 - contenido de alcohol
+	const hofbrau = new Roja(origen = alemania, lupulo = 3.2)
+	const laJarra = new Jarra(marca = hofbrau, litros = 0.5)
+	assert.equals(0.04,laJarra.contendioAlcoholico())
+	
+	//2 - total de alcohol
+	const gerardo = new Aleman(peso = 90, aguante = 20)
+	gerardo.agarrarJarra(laJarra)
+	assert.equals(0.04,gerardo.alcoholIngerido())
+	assert.notThat(gerardo.estaEbria())
+	
+	//3 - esta ebria
+	const corona = new Rubia(origen = belgica, graduacionAlcoholica = 10)
+	const laJarra2 = new Jarra(marca = corona, litros = 10.0)
+	gerardo.agarrarJarra(laJarra2)
+	assert.that(gerardo.estaEbria())
+	
+	//4 - le gusta
+	const carlos = new Belga(peso = 90, aguante = 20)
+	const guiness = new Negra(origen = alemania, lupulo = 8)
+	assert.notThat(carlos.leGustaCervezaMarca(hofbrau))
+	assert.that(carlos.leGustaCervezaMarca(guiness))
+	
+}
