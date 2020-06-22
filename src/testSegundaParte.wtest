@@ -2,6 +2,7 @@ import marcas.*
 import carpas.*
 import paises.*
 import personas.*
+import jarras.*
 
 test "test segunda parte" {
 	

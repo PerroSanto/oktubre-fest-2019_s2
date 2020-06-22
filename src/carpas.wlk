@@ -1,6 +1,7 @@
 import marcas.*
 import personas.*
 import paises.*
+import jarras.*
 
 class Carpa {
 	var property cupo = 0

@@ -1,6 +1,7 @@
 import carpas.*
 import personas.*
 import paises.*
+import jarras.*
 
 class Cerveza {
 	var property origen
@@ -28,12 +29,3 @@ class Roja inherits Negra{
 		return super() * 1.25
 	}
 }
-
-class Jarra{
-	var property litros = 0
-	var property marca
-	method contendioAlcoholico(){
-		return(litros * marca.graduacionAlcoholica()) /100
-	}
-}
-
